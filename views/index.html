@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The onclick Event</h1>
+
+<p>The onclick event is used to trigger a function when an element is clicked on.</p>
+
+<p>Click the button to trigger a function that will output "Hello World" in a p element with id="demo".</p>
+
+<button onclick="myFunction()">Click me</button>
+
+<p id="demo"></p>
+<script src = 'https://checkout.razorpay.com/v1/checkout.js'></script>
+<script>
+function myFunction() {
+   var options = { 
+      "key": "key_id",
+      "subscription_id": "sub_00000000000001", 
+      "name": "Acme Corp.", 
+      "description": "Monthly Test Plan", 
+      "image": "/your_logo.png", 
+      "handler": function(response) { 
+         alert(response.razorpay_payment_id)        alert(response.razorpay_subscription_id)      alert(response.razorpay_signature)
+      }, 
+      "prefill": { 
+         "name": "Gaurav Kumar", 
+         "email": "gaurav.kumar@example.com", 
+         "contact": "+919876543210" 
+      }, 
+      "notes": { 
+         "note_key_1": "Tea. Earl Grey. Hot", 
+         "note_key_2": "Make it so." 
+      }, 
+      "theme": { 
+      "color": "#F37254" 
+      } 
+   }; 
+   var paymentObject = new Razorpay(options);
+   paymentObject.open()
+
+}
+</script>
+
+</body>
+</html>
